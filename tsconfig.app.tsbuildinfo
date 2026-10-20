@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/content.tsx","./src/main.tsx","./src/components/adminpage.tsx","./src/components/bookingform.tsx","./src/components/chrome.tsx","./src/components/modal.tsx","./src/data/restaurant.ts","./src/services/storage.ts","./src/types/index.ts"],"version":"5.9.3"}
