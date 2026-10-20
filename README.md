@@ -42,6 +42,8 @@ pnpm install
 pnpm dev
 ```
 
+The development server opens `app.html` locally. GitHub Pages, when configured to publish the `main` branch root, follows the root `index.html` redirect to the built files in `dist/`.
+
 Для production-сборки:
 
 ```bash
@@ -53,12 +55,12 @@ pnpm preview
 
 ## Публикация на GitHub Pages
 
-1. Создайте репозиторий и загрузите содержимое проекта в его ветку `main`.
-2. В настройках репозитория откройте **Settings → Pages** и выберите публикацию через **GitHub Actions**.
-3. Workflow `.github/workflows/pages.yml` автоматически соберёт и опубликует сайт по адресу `https://USERNAME.github.io/REPOSITORY/`.
-4. Имя подпапки определяется автоматически из имени репозитория через `VITE_BASE_PATH`. Hash-маршрутизация поддерживает открытие и обновление внутренних страниц без серверных правил.
+1. Загрузите файлы проекта вместе с содержимым `dist/` в ветку `main`.
+2. В **Settings → Pages** выберите **Deploy from a branch**, ветку `main` и папку `/(root)`.
+3. GitHub Pages отдаёт корневой `index.html`, который перенаправляет на production-сборку в `dist/`. Относительные пути к ресурсам работают в подпапке `https://USERNAME.github.io/REPOSITORY/`.
+4. После изменений запустите `pnpm build` и отправьте обновлённые `index.html` и папку `dist/` в репозиторий.
 
-Для ручной сборки под подпапку можно задать переменную окружения `VITE_BASE_PATH=/имя-репозитория/` и выполнить `pnpm build`. Локальная разработка без настройки использует корень `/`.
+При стандартной сборке ресурсы используют относительные пути. Для публикации через отдельный GitHub Actions workflow можно задать `VITE_BASE_PATH=/имя-репозитория/`.
 
 ## Хранение и ограничения демо-версии
 

@@ -4,15 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#171715" />
-    <meta name="description" content="ВОЯЖ — ресторан авторской кухни. Концептуальный проект: меню, залы и демонстрационная заявка на бронирование." />
+    <meta http-equiv="refresh" content="0;url=./dist/" />
     <title>ВОЯЖ — искусство наслаждаться моментом</title>
-    <link rel="preconnect" href="https://images.unsplash.com" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet" />
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <p>Открываем сайт ВОЯЖ… Если переход не сработал, <a href="./dist/">нажмите здесь</a>.</p>
+    <script>
+      const destination = new URL('./dist/', window.location.href);
+      destination.hash = window.location.hash;
+      destination.search = window.location.search;
+      window.location.replace(destination.href);
+    </script>
   </body>
 </html>
